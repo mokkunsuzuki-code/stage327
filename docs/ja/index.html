@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>REMEDA Stage327 日本語版</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0f172a;color:#e5e7eb;margin:0;padding:40px}
+.container{max-width:1120px;margin:auto}
+.card{background:#111827;border:1px solid #334155;border-radius:18px;padding:24px;margin-bottom:20px}
+.badge{display:inline-block;background:#1d4ed8;padding:6px 12px;border-radius:999px;margin-right:8px}
+.badge2{display:inline-block;background:#065f46;padding:6px 12px;border-radius:999px;margin-right:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.mini{background:#020617;border:1px solid #1e293b;border-radius:14px;padding:16px}
+pre{background:#020617;border-radius:12px;padding:16px;overflow-x:auto;border:1px solid #1e293b}
+textarea,select,input{box-sizing:border-box;border-radius:8px;border:1px solid #334155;background:#020617;color:#e5e7eb;padding:10px}
+button{background:#1d4ed8;color:white;border:0;border-radius:10px;padding:12px 18px;font-weight:700}
+a{color:#93c5fd}
+.warning{background:#3f1d1d;border:1px solid #7f1d1d;color:#fecaca;padding:16px;border-radius:14px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="card">
+<span class="badge">REMEDA</span>
+<span class="badge2">Stage327</span>
+
+<h1>再現証拠スキーマ</h1>
+
+<p>
+Stage327は、AI脆弱性の再現結果を、
+SHA256付きの標準化された構造化監査証拠へ変換します。
+</p>
+
+<div class="grid">
+<div class="mini"><strong>決定</strong><br><br>ACCEPT / PENDING</div>
+<div class="mini"><strong>追加されたコア技術</strong><br><br>Reproduction Evidence Schema</div>
+<div class="mini"><strong>状態</strong><br><br>Structured Audit Evidence</div>
+<div class="mini"><strong>モデル</strong><br><br>AI Claim → Reproduction Evidence → SHA256 → QSP Decision</div>
+</div>
+</div>
+
+<div class="card">
+<h2>技術進化</h2>
+
+<div class="grid">
+
+<div class="mini">
+<strong>Stage320</strong><br><br>
+Proof URL Viewer<br>
+AI検証結果を公開URL化
+</div>
+
+<div class="mini">
+<strong>Stage321</strong><br><br>
+Signed Proof<br>
+GPG署名付きProof
+</div>
+
+<div class="mini">
+<strong>Stage322</strong><br><br>
+Audit History Chain<br>
+監査履歴チェーン化
+</div>
+
+<div class="mini">
+<strong>Stage323</strong><br><br>
+YubiKey Signature<br>
+ハードウェア署名
+</div>
+
+<div class="mini">
+<strong>Stage325</strong><br><br>
+Audit Report Export<br>
+JSON / HTML / PDF出力
+</div>
+
+<div class="mini">
+<strong>Stage326</strong><br><br>
+Same Target Check<br>
+AI指摘と再現対象の一致確認
+</div>
+
+<div class="mini">
+<strong>Stage327</strong><br><br>
+Reproduction Evidence Schema<br>
+再現証拠を標準構造化
+</div>
+
+</div>
+
+<pre>
+Stage320
+↓
+Stage321
+↓
+Stage322
+↓
+Stage323
+↓
+Stage325
+↓
+Stage326
+↓
+Stage327
+</pre>
+</div>
+
+<div class="card">
+<h2>Stage327で追加されたもの</h2>
+
+<div class="grid">
+
+<div class="mini">
+<strong>vulnerability_type</strong><br><br>
+脆弱性分類。<br>
+prompt-injection等。
+</div>
+
+<div class="mini">
+<strong>target</strong><br><br>
+検証対象。<br>
+repository / model-output等。
+</div>
+
+<div class="mini">
+<strong>ai_claim_id</strong><br><br>
+AI脆弱性指摘ID
+</div>
+
+<div class="mini">
+<strong>reproduction_id</strong><br><br>
+再現証拠ID
+</div>
+
+<div class="mini">
+<strong>result</strong><br><br>
+reproduced / partial / inconclusive
+</div>
+
+<div class="mini">
+<strong>evidence_files</strong><br><br>
+証拠ファイル一覧
+</div>
+
+<div class="mini">
+<strong>sha256</strong><br><br>
+証拠ファイル改ざん検出
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>Before / After</h2>
+
+<div class="grid">
+
+<div class="mini">
+<strong>Before</strong><br><br>
+
+AI脆弱性報告が自由文。
+
+<pre>
+「Prompt Injectionが可能でした」
+</pre>
+</div>
+
+<div class="mini">
+<strong>After Stage327</strong><br><br>
+
+再現結果を構造化監査証拠へ変換。
+
+<pre>
+{
+  "vulnerability_type": "prompt-injection",
+  "evidence_files": [
+    "prompt.txt",
+    "response.txt",
+    "run.log"
+  ],
+  "sha256": {}
+}
+</pre>
+
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>核心</h2>
+
+<pre>
+AI脆弱性結果
+↓
+再現証拠
+↓
+SHA256 Binding
+↓
+第三者検証可能な監査証拠
+</pre>
+
+</div>
+
+<div class="card">
+<h2>Fail-Closed Rule</h2>
+
+<pre>
+必要証拠不足
+または
+SHA256不足
+↓
+pending / reject
+</pre>
+
+</div>
+
+<div class="card">
+<h2>公開ファイル</h2>
+
+<p><a href="../">英語版ページ</a></p>
+<p><a href="../../schemas/reproduction-evidence.schema.json">Schema JSON</a></p>
+<p><a href="../../examples/reproduction-evidence.example.json">Example JSON</a></p>
+
+</div>
+
+<div class="card">
+<h2>注意</h2>
+
+<div class="warning">
+JSONキーは翻訳してはいけません。
+vulnerability_type や sha256 は固定です。
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
