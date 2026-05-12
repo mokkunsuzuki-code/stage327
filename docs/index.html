@@ -193,6 +193,10 @@ function generateEvidence() {
     target: getValue("target"),
     ai_claim_id: getValue("ai_claim_id"),
     reproduction_id: getValue("reproduction_id"),
+    repository: getValue("repro_repo"),
+    commit: getValue("repro_commit"),
+    file: getValue("repro_file"),
+    line_range: getValue("repro_line"),
     result: getValue("result"),
     evidence_files: evidenceFiles,
     sha256: sha256,
@@ -209,6 +213,58 @@ function generateEvidence() {
     JSON.stringify(evidence, null, 2);
 }
 </script>
+
+<div class="card">
+<h2>Stage326 + Stage327 Combined Model</h2>
+
+<p>
+Stage326 verifies whether the AI claim and the reproduction evidence refer to the same target.
+Stage327 standardizes the reproduction evidence itself into structured audit evidence.
+</p>
+
+<div class="grid">
+
+<div class="mini">
+<strong>Stage326</strong><br><br>
+Repository Match<br>
+Commit Match<br>
+File Match<br>
+Line Match
+</div>
+
+<div class="mini">
+<strong>Stage327</strong><br><br>
+Evidence Files<br>
+SHA256 Binding<br>
+Integrity Validation<br>
+Third-Party Verification
+</div>
+
+<div class="mini">
+<strong>Combined Result</strong><br><br>
+same_target = true<br>
+evidence_integrity = valid<br>
+qsp_decision = accept
+</div>
+
+</div>
+
+<pre>
+AI Claim
+↓
+Target Match Verification
+↓
+Reproduction Evidence
+↓
+SHA256 Binding
+↓
+Third-Party Verification
+↓
+QSP Decision
+</pre>
+
+</div>
+
 
 <div class="card">
 <h2>Core Question</h2>
